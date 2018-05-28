@@ -71,7 +71,9 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
         
         initComponents();
         
+        //Colocar fecha general
         txtFecha.setText(fecha());
+        //Para colocar el dia, mes y anio aparte en otros txt
         txtDia.setText(txtFecha.getText().substring(0,2));
         txtMes.setText(txtFecha.getText().substring(3,5));
         txtAnio.setText(txtFecha.getText().substring(6,10));
