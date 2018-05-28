@@ -8,6 +8,8 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +17,41 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class Operaciones {
+    
+    
+//PARA EL AUDIO 
+public Clip clip;
+public String ruta1 = "/Sonido/adios.wav";
+public String ruta2 = "/Sonido/bien.wav";
+    
+    //REPRODUCTOR DE ADIOS
+    public void sonid1()
+    {
+        try 
+        {
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta1)));
+            clip.start();
+            
+        } catch (Exception e) 
+        {
+            
+        }
+    }
+    //REPRODUCTOR DE BIENVENIDO
+    public void sonid2()
+    {
+        try 
+        {
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta2)));
+            clip.start();
+            
+        } catch (Exception e) 
+        {
+            
+        }
+    }    
     
     
 //PARA REGISTRAR UNA ENTRADA O SALIDA    
@@ -44,7 +81,9 @@ public class Operaciones {
                 
                  //ejecutamos LA CONSULTA 
                 comando.executeUpdate("insert into ensal() values('"+0+"','"+id+"','"+hora+"','"+dia+"','"+mes+"','"+anio+"','"+nuevoStatus+"')");
-                                        //colocarle 0 para que actualice y coloque el dato de manera AUTOINCREMENTADA en la tabal                
+                                        //colocarle 0 para que actualice y coloque el dato de manera AUTOINCREMENTADA en la tabal     
+                
+                sonid1();
             }
             else
             {
@@ -53,7 +92,9 @@ public class Operaciones {
                 
                  //ejecutamos LA CONSULTA 
                 comando.executeUpdate("insert into ensal() values('"+0+"','"+id+"','"+hora+"','"+dia+"','"+mes+"','"+anio+"','"+nuevoStatus+"')");
-                                        //colocarle 0 para que actualice y coloque el dato de manera AUTOINCREMENTADA en la tabal                 
+                                        //colocarle 0 para que actualice y coloque el dato de manera AUTOINCREMENTADA en la tabal    
+                                        
+                sonid2();
             }
 
                                     
