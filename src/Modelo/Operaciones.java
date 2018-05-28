@@ -169,7 +169,7 @@ public String ruta2 = "/Sonido/bien.wav";
             else
             {
                 //llamamos igual al otro metodo pero enviamos Entro porque no existe
-                AgregarUsuario(id, hora, dia, mes, anio, "ENTRO");
+                AgregarUsuario(id, hora, dia, mes, anio, "SALIO");
             }            
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------    
            
