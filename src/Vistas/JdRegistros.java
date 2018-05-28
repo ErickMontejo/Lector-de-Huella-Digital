@@ -42,6 +42,8 @@ import javax.swing.UIManager;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import jdk.nashorn.internal.objects.NativeString;
 /**
  *
@@ -52,6 +54,11 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
     //variables para LA HORA
     String hora,minutos,segundos;
     Thread hilo;
+    
+    //PARA EL AUDIO
+    public Clip clip;
+    public String ruta3 = "/Sonido/noreg.wav";    
+    
     
     /**
      * Creates new form JdRegistros
@@ -175,7 +182,13 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
                         //METODO PARA REGISTAR ENTRADA O SALIDA
                         Operaciones nuevaOpreacion = new Operaciones();
                         txtArea.setText(nuevaOpreacion.BuscarDatos(Integer.parseInt(txtIdHuella.getText()), (hora+":"+minutos+":"+segundos), txtDia.getText(), txtMes.getText(), txtAnio.getText()));
-                                
+                        
+                        
+                        //PARA QUE CIERRE Y VUELVA A COLOCARSE LIMPIANDO TODO 
+                        //JdRegistros nuevaPantala = new JdRegistros(new JFprincipal(), true);
+                        //nuevaPantala.setVisible(false);
+                        //nuevaPantala.setVisible(true);
+                        
                         
                     }
                 });
@@ -381,10 +394,11 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
             }
             
             //Si no encuentra alguna huella correspondiente al nombre lo indica con un mensaje 
-            JOptionPane.showMessageDialog(null, "No existe ningun registro que coincida con la huella","Verificacion de Huella", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "No existe ningun registro que coincida con la huella","Verificacion de Huella", JOptionPane.ERROR_MESSAGE);//-----------------------MENSAJE DE ERRROR CUANDO NO ESTA REGISTRADO
             
             
             setTemplate(null);
+            sonid3();
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------    
            
 
@@ -434,6 +448,26 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
             
         }
     }
+    
+    //REPRODUCTOR DE NO REGISTRADO
+    public void sonid3()
+    {
+        try 
+        {
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta3)));
+            clip.start();
+            
+        } catch (Exception e) 
+        {
+            
+        }
+    }    
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
