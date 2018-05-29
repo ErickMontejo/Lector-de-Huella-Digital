@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author riche
@@ -12,8 +14,8 @@ package Modelo;
 public interface IrtUsuario {
     
     public void AgregarUsuario(Usuario nuevoUsuario);
-    public void BuscarUsuario(String Apellidos);
-    public void EditarUsuario(String Apellidos);
+    public void BuscarUsuario(String Apellidos, DefaultTableModel modelo );
+    public void EditarUsuario(String Nombre, String Apellidos, String Direccion, String Telefono, int id);
     public void EliminarUsuario(String Apellidos);
     
 }

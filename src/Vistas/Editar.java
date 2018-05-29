@@ -5,18 +5,28 @@
  */
 package Vistas;
 
+import Modelo.Usuario;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author riche
  */
 public class Editar extends javax.swing.JDialog {
-
+    DefaultTableModel modelo = new DefaultTableModel(); 
+    
     /**
      * Creates new form Editar
      */
     public Editar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        modelo.addColumn("ID");
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("APELLIDO");
+        modelo.addColumn("DIRECCION");
+        modelo.addColumn("TELEFONO");
+        jTablePersona.setModel(modelo);
     }
 
     /**
@@ -28,16 +38,171 @@ public class Editar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtTelefono = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTablePersona = new javax.swing.JTable();
+        txtApellidoBuscar = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        txtModificar = new javax.swing.JButton();
+        txtNombre1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtNombre2 = new javax.swing.JTextField();
+        txtNombre3 = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 206, -1));
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 206, -1));
+        getContentPane().add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 206, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 206, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("NOMBRE:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 60, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("APELLIDO:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 70, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("DIRECCION:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 80, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("TELÉFONO:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 70, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ediitar.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 400));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 710, 140));
+
+        jTablePersona.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "NOMBRE", "APELLIDO", "DIRECCION", "ZONA "
+            }
+        ));
+        jTablePersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePersonaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTablePersona);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 620, 100));
+
+        txtApellidoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoBuscarActionPerformed(evt);
+            }
+        });
+        txtApellidoBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtApellidoBuscarKeyPressed(evt);
+            }
+        });
+        getContentPane().add(txtApellidoBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 200, 20));
+
+        jLabel6.setText("APELLIDO");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 90, 30));
+
+        txtModificar.setText("GUARDAR DATOS");
+        txtModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 140, -1));
+        getContentPane().add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 206, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("NOMBRE:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 60, -1));
+        getContentPane().add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 206, -1));
+        getContentPane().add(txtNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 206, -1));
+
+        txtId.setEditable(false);
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 60, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtApellidoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoBuscarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.LimpiarTabla(modelo);
+        String apellido = txtApellidoBuscar.getText();
+       nuevoUsuario.BuscarUsuario(apellido, modelo);
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void jTablePersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePersonaMouseClicked
+        // TODO add your handling code here:
+        if (jTablePersona.getSelectedRow() != -1)
+        {
+            int fila = jTablePersona.getSelectedRow();
+            txtId.setText(jTablePersona.getValueAt(fila,0).toString());
+            txtNombre.setText(jTablePersona.getValueAt(fila,1).toString());
+            txtApellidos.setText(jTablePersona.getValueAt(fila,2).toString());
+            txtDireccion.setText(jTablePersona.getValueAt(fila,3).toString());
+            txtTelefono.setText(jTablePersona.getValueAt(fila,4).toString());
+            
+        }
+    }//GEN-LAST:event_jTablePersonaMouseClicked
+
+    private void txtApellidoBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoBuscarKeyPressed
+        // TODO add your handling code here:
+         Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.LimpiarTabla(modelo);
+        String apellido = txtApellidoBuscar.getText();
+       nuevoUsuario.BuscarUsuario(apellido, modelo);
+    }//GEN-LAST:event_txtApellidoBuscarKeyPressed
+
+    private void txtModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModificarActionPerformed
+        // TODO add your handling code here:
+        String Nombre = txtNombre.getText();
+        String Apellidos = txtApellidos.getText();
+        String Direccion = txtDireccion.getText();
+        String Telefono = txtTelefono.getText();
+        int id = Integer.parseInt(txtId.getText());
+        Usuario nuevoUsuario = new Usuario();
+        nuevoUsuario.EditarUsuario(Nombre, Apellidos, Direccion, Telefono, id);
+        nuevoUsuario.LimpiarTabla(modelo);
+        String apellido = txtApellidoBuscar.getText();
+        nuevoUsuario.BuscarUsuario(apellido, modelo);
+        
+    }//GEN-LAST:event_txtModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,6 +247,25 @@ public class Editar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JTable jTablePersona;
+    private javax.swing.JTextField txtApellidoBuscar;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JButton txtModificar;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombre1;
+    private javax.swing.JTextField txtNombre2;
+    private javax.swing.JTextField txtNombre3;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

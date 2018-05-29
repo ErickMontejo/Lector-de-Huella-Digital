@@ -7,10 +7,12 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -192,4 +194,5 @@ public String ruta2 = "/Sonido/bien.wav";
         
     }    
     
+ 
 }
