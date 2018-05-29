@@ -74,10 +74,11 @@ public class Ingresar extends javax.swing.JDialog {
     private DPFPVerification Verificador = DPFPGlobal.getVerificationFactory().createVerification();
     private DPFPTemplate template;
     public static String TEMPLATE_PROPERTY = "template";
+    boolean estado = false;
     
     //Metodos ABSTRACTOS para realizar la captura de la huella 
     protected void Iniciar()
-    {
+    {   
         Lector.addDataListener(new DPFPDataAdapter()
         {
             @Override public void dataAcquired(final DPFPDataEvent e)
@@ -96,13 +97,18 @@ public class Ingresar extends javax.swing.JDialog {
         Lector.addReaderStatusListener(new DPFPReaderStatusAdapter()
         {
             @Override public void readerConnected(final DPFPReaderStatusEvent e)
-            {
+            {   
                 SwingUtilities.invokeLater(new Runnable() 
                 {
                     @Override
                     public void run() 
                     {
                         EnviarTexto("El sensor de Huella Digital esta Activado y Conectado");
+                        if (estado == false)
+                        {
+                            JOptionPane.showMessageDialog(null,"PONGA 4 VECES LA HUELLA");
+                            estado = true;
+                        }   
                     }
                 });
             }
@@ -115,6 +121,7 @@ public class Ingresar extends javax.swing.JDialog {
                     public void run()
                     {
                         EnviarTexto("El Sensor de Huella Digital esta Desconectado o No conectado");
+                        estado = false;
                     }  
                 }); 
             }
@@ -435,6 +442,7 @@ public class Ingresar extends javax.swing.JDialog {
 
         txtArea.setColumns(20);
         txtArea.setRows(5);
+        txtArea.setEnabled(false);
         jScrollPane1.setViewportView(txtArea);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 660, 110));
