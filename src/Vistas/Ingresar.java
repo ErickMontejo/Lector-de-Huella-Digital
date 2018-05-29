@@ -106,7 +106,7 @@ public class Ingresar extends javax.swing.JDialog {
                         EnviarTexto("El sensor de Huella Digital esta Activado y Conectado");
                         if (estado == false)
                         {
-                            JOptionPane.showMessageDialog(null,"PONGA 4 VECES LA HUELLA");
+                            JOptionPane.showMessageDialog(null,"Ingrese los datos y PONGA 4 VECES LA HUELLA");
                             estado = true;
                         }   
                     }
