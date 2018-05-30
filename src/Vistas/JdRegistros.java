@@ -179,9 +179,9 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
                             Logger.getLogger(JdRegistros.class.getName()).log(Level.SEVERE,null,ex);
                         }                        
                         
-                        //METODO PARA REGISTAR ENTRADA O SALIDA
-                        Operaciones nuevaOpreacion = new Operaciones();
-                        txtArea.setText(nuevaOpreacion.BuscarDatos(Integer.parseInt(txtIdHuella.getText()), (hora+":"+minutos+":"+segundos), txtDia.getText(), txtMes.getText(), txtAnio.getText()));
+                        //METODO PARA REGISTAR ENTRADA O SALIDA-----------------------ANTIGUIO LUGAR 
+                        //Operaciones nuevaOpreacion = new Operaciones();
+                        //txtArea.setText(nuevaOpreacion.BuscarDatos(Integer.parseInt(txtIdHuella.getText()), (hora+":"+minutos+":"+segundos), txtDia.getText(), txtMes.getText(), txtAnio.getText()));
                         
                         
                         //PARA QUE CIERRE Y VUELVA A COLOCARSE LIMPIANDO TODO 
@@ -389,6 +389,12 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
                     //JOptionPane.showMessageDialog(null, "La huella capturada es de :  "+nombre,"  Verificacion de huella",JOptionPane.INFORMATION_MESSAGE);
                     txtIdHuella.setText(Integer.toString(codigo));
                     txtNombreHuella.setText(nombre);
+                    
+                    //METODO PARA REGISTAR ENTRADA O SALIDA          ------------------------------------ NUEVO LUGAR PARA EVITAR INCONVENIENTES
+                    Operaciones nuevaOpreacion = new Operaciones();
+                    txtArea.setText(nuevaOpreacion.BuscarDatos(Integer.parseInt(txtIdHuella.getText()), (hora+":"+minutos+":"+segundos), txtDia.getText(), txtMes.getText(), txtAnio.getText()));
+                                            
+                    
                     return;
                 }
             }
@@ -398,6 +404,8 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
             
             
             setTemplate(null);
+            
+            //si NO ENCUENTRA a nadie sonara un sonido 
             sonid3();
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------    
            
