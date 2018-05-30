@@ -6,8 +6,13 @@
 package Vistas;
 
 import Modelo.MostrarReportes;
+import java.text.MessageFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.print.PrintException;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -144,6 +149,13 @@ public class Buscar extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try {
+            MessageFormat headFormat = new MessageFormat("Registro de asistencias"+" Universidad Mariano Galvez");
+            MessageFormat headFormat2 = new MessageFormat("Catedratico: "+txtNombre.getText()+ " "+ txtApellido.getText() );
+            jTable1.print(JTable.PrintMode.NORMAL, headFormat,headFormat2);
+        } catch (Exception e) {
+            Logger.getLogger(Buscar.class.getName()).log(Level.SEVERE,null,e);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
