@@ -83,6 +83,11 @@ public class Buscar extends javax.swing.JDialog {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 510, 230));
 
         jButton1.setText("CONVERTIR PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 130, 40));
 
         jButton2.setText("MOSTRAR");
@@ -136,6 +141,10 @@ public class Buscar extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,"Seleccione una opción para mostrar la asistencia del catedratico");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
