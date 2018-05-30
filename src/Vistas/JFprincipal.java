@@ -35,6 +35,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -44,7 +45,9 @@ public class JFprincipal extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 1530, 780);
 
         jMenu1.setText("ARCHIVO");
+        jMenu1.setFont(new java.awt.Font("Snap ITC", 0, 24)); // NOI18N
 
+        jMenuItem2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jMenuItem2.setText("INGRESAR USUARIO");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +56,7 @@ public class JFprincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jMenuItem3.setText("BUSCAR USUARIO");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +65,7 @@ public class JFprincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
+        jMenuItem4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jMenuItem4.setText("EDITAR USUARIO");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +74,7 @@ public class JFprincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
+        jMenuItem5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jMenuItem5.setText("ELIMINAR USUARIO");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,12 +86,22 @@ public class JFprincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("REGISTROS");
+        jMenu2.setFont(new java.awt.Font("Snap ITC", 0, 24)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu2MouseClicked(evt);
             }
         });
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("SALIR");
+        jMenu3.setFont(new java.awt.Font("Snap ITC", 0, 24)); // NOI18N
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -127,6 +143,12 @@ public class JFprincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        
+        System.exit(0); //para salir por completo 
+    }//GEN-LAST:event_jMenu3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -166,6 +188,7 @@ public class JFprincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
