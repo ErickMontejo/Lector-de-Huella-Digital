@@ -33,7 +33,6 @@ public class JFprincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
@@ -74,15 +73,6 @@ public class JFprincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
-        jMenuItem5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jMenuItem5.setText("ELIMINAR USUARIO");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem5);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("REGISTROS");
@@ -113,14 +103,6 @@ public class JFprincipal extends javax.swing.JFrame {
         editar.setLocationRelativeTo(null);
         editar.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Eliminar eliminar = new Eliminar(new JFprincipal(), true);
-        eliminar.setLocationRelativeTo(null);
-        eliminar.setVisible(true);
-        
-                
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         Ingresar ingresar = new Ingresar(new JFprincipal(), true);
@@ -193,6 +175,5 @@ public class JFprincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 }
