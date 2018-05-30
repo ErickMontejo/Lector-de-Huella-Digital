@@ -90,7 +90,7 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
         hilo.start();
         //setVisible(true);
         
-        //txtArea.setText(txtHora.getText());
+        //txtArea.setText(txtHora.getText());    
     }
 
     //VARIABLES para el procesamiento digital de la Huella 
@@ -189,7 +189,7 @@ public class JdRegistros extends javax.swing.JDialog implements Runnable{
                         //nuevaPantala.setVisible(false);
                         //nuevaPantala.setVisible(true);
                         
-                        
+
                     }
                 });
             }
