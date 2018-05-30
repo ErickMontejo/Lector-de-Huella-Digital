@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Vistas.BuscarUs;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -110,8 +111,36 @@ String huella; //estara pendiente, ya que no se sabe como se guardara la huella
     }
     
     
-   
+   public void BuscarUsuario1(DefaultTableModel modelo,String Apellidos) {
+    Conexion nuevaConexion = new Conexion();
+        Connection conex;
+        ResultSet Consulta = null;
+        try {
+            nuevaConexion.Conectar();
+            conex = nuevaConexion.getConexion();
+            Statement comando = conex.createStatement();
+           
+            Consulta = comando.executeQuery("select persona.id, persona.nombre, persona.apellidos, persona.direccion, persona.telefono from persona where persona.apellidos='"+Apellidos+"'");
+                String persona[] = new String[5];
+            while(Consulta.next()==true){
+                persona[0]=Consulta.getString("id");
+                persona[1]=Consulta.getString("nombre");
+                persona[2]=Consulta.getString("apellidos");
+                persona[3]=Consulta.getString("direccion");
+                persona[4]=Consulta.getString("telefono");
+                modelo.addRow(persona);
+            }
+            
+            {
+                BuscarUs.JTMosBU.setModel(modelo);
+                
+            }
+           
+      } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error"+ e);
+      }
     
     }
-    
+    }
+
 
