@@ -5,6 +5,10 @@
  */
 package Vistas;
 
+import Modelo.MostrarReportes;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author riche
@@ -28,69 +32,110 @@ public class Buscar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jdcFecha = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        jrbDía = new javax.swing.JRadioButton();
+        jrbSemana = new javax.swing.JRadioButton();
+        jrbMes = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/borrar-huella-digital-1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 200, 370));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 200, 460));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("MOSTRAR REGISTROS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 200, 30));
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 200, 30));
 
         jLabel3.setText("Apellidos:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
 
         jLabel4.setText("Nombre:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 180, 30));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 180, 30));
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "No.", "ESTATUS", "DÍA", "MES", "AÑO"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
+        ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 510, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 510, 230));
 
         jButton1.setText("CONVERTIR PDF");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 130, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 130, 40));
 
         jButton2.setText("MOSTRAR");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 110, 40));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 110, 40));
+        getContentPane().add(jdcFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 130, -1));
+
+        jLabel5.setText("Seleccione una Fecha");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, 20));
+
+        buttonGroup1.add(jrbDía);
+        jrbDía.setText("Asistencia por Día");
+        getContentPane().add(jrbDía, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
+
+        buttonGroup1.add(jrbSemana);
+        jrbSemana.setText("Asistencia por Semana");
+        getContentPane().add(jrbSemana, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, -1, -1));
+
+        buttonGroup1.add(jrbMes);
+        jrbMes.setText("Asistencia por Mes");
+        getContentPane().add(jrbMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        MostrarReportes NuevoReporte = new MostrarReportes();
+        String Dia = Integer.toString(jdcFecha.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String Mes = "0"+Integer.toString(jdcFecha.getCalendar().get(Calendar.MONTH)+1);
+        String Año = Integer.toString(jdcFecha.getCalendar().get(Calendar.YEAR));
+        //String Semana = Integer.toString(jdcFecha.getCalendar().get(Calendar.WEEK_OF_YEAR));
+        if(jrbDía.isSelected())
+        {
+          NuevoReporte.mostrarCDia(txtApellido.getText(),txtNombre.getText(), Dia, Mes, Año);
+        }
+        else if(jrbSemana.isSelected())
+        {
+           // System.out.println(Semana);
+        }
+        else if(jrbMes.isSelected())
+        {
+            NuevoReporte.MostrarCM(txtApellido.getText(),txtNombre.getText(), Mes, Año);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Seleccione una opción para mostrar la asistencia del catedratico");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,15 +180,21 @@ public class Buscar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public static javax.swing.JTable jTable1;
+    private com.toedter.calendar.JDateChooser jdcFecha;
+    private javax.swing.JRadioButton jrbDía;
+    private javax.swing.JRadioButton jrbMes;
+    private javax.swing.JRadioButton jrbSemana;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
